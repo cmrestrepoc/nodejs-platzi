@@ -5,7 +5,7 @@ const dotenv = require('dotenv')
 dotenv.config()
 
 db.Promise = global.Promise
-db.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORS}@cluster0.e5xg7.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`, {
+db.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.e5xg7.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`, {
     useNewUrlParser: true, 
     useUnifiedTopology: true
 })
