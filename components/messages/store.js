@@ -1,8 +1,11 @@
 const db = require('mongoose')
 const Model = require('./model')
+const dotenv = require('dotenv')
+
+dotenv.config()
 
 db.Promise = global.Promise
-db.connect('mongodb+srv://CRESTREPO:dQy2bV7LMEnKySv@cluster0.e5xg7.mongodb.net/platziDatabase?retryWrites=true&w=majority', {
+db.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORS}@cluster0.e5xg7.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`, {
     useNewUrlParser: true, 
     useUnifiedTopology: true
 })
