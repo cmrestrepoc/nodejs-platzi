@@ -21,7 +21,21 @@ const getMessages = async () => {
     return messages
 }
 
+const updateText = async (id, message) => {
+    try {
+        const foundMessage = await Model.findOne({
+            _id: id
+        })
+        foundMessage.message = message
+        const newMessage = await foundMessage.save()
+        return newMessage
+    } catch (error) {
+        console.log('Error updating text', error)
+    }
+}
+
 module.exports = {
     add: addMessage,
-    list: getMessages
+    list: getMessages,
+    updateText: updateText
 }
